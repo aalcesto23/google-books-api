@@ -8,7 +8,7 @@ class Header extends Component {
           MY WEEKEND'S ALL BOOKED
         </h3>
         <h6 className="sub-header">
-          Search for your perfect wekkend book and more...
+          Search for your perfect weekend book and more...
         </h6>
       </div>
     )
