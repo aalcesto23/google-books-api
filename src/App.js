@@ -11,7 +11,8 @@ const NO_IMAGE_DEFAULT= 'https://upload.wikimedia.org/wikipedia/commons/thumb/ar
 class App extends Component {
 
   state = {
-    results: []
+    results: [],
+    query: ''
   }
 
   getImageURL = (info) => {
@@ -22,35 +23,41 @@ class App extends Component {
     }
   }
 
+  updateQuery = (e) => {
+    e.preventDefault()
+    const query = e.target.value
+    this.setState({
+      query: query
+    })
+  }
+
   getBooks = async(e) => {
     e.preventDefault()
-    const query = e.target.elements.query.value
-    const api_call = await fetch(`${API_HOST}?q=${query}&maxResults=${MAX_RESULTS}&key=${API_KEY}`)
+    const api_call = await fetch(`${API_HOST}?q=${this.state.query}&maxResults=${MAX_RESULTS}&key=${API_KEY}`)
     const data = await api_call.json();
-    console.log(data)
-    const parsedResults = data.items.map(x => {
-      const info = x.volumeInfo
-      return {
-        author: info.authors || '',
-        title: info.title ||  '',
-        publishingCompany: info.publisher || '',
-        bookImageURL: this.getImageURL(info),
-        description: info.description || '',
-        infoLink: info.infoLink || ''
-      }
-    })
-
-    this.setState({
-      results: parsedResults
-    })
-    console.log('after set', this.state)
+    if (data.totalItems > 0) {
+      const parsedResults = data.items.map(x => {
+        const info = x.volumeInfo
+        return {
+          author: info.authors || '',
+          title: info.title ||  '',
+          publishingCompany: info.publisher || '',
+          bookImageURL: this.getImageURL(info),
+          description: info.description || '',
+          infoLink: info.infoLink || ''
+        }
+      })
+      this.setState({
+        results: parsedResults,
+      })
+    }
   }
   
   render() {
     return (
       <div className="app-container">
         <Header />
-        <BookQueryForm getBooks={this.getBooks} />
+        <BookQueryForm getBooks={this.getBooks} query={this.state.query} updateQuery={this.updateQuery}/>
         <BookList results={this.state.results} />
       </div>
     );
