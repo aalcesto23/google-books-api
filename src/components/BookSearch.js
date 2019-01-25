@@ -31,6 +31,10 @@ class BookSearch extends Component {
     })
   }
 
+  handleMultipleAuthors = (authors) => {
+    return authors ? authors.join(', ') : ''
+  }
+
   getBooks = async(e) => {
     e.preventDefault()
     search(this.state.query).then((data) => {
@@ -38,7 +42,7 @@ class BookSearch extends Component {
         const parsedResults = data.items.map(x => {
           const info = x.volumeInfo
           return {
-            author: info.authors || '',
+            author: this.handleMultipleAuthors(info.authors),
             title: info.title ||  '',
             publishingCompany: info.publisher || '',
             bookImageURL: this.getImageURL(info),

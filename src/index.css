@@ -8,3 +8,7 @@
 .sub-header {
   text-align: center;
 }
+.emphasisText {
+  font-style: italic;
+  font-weight: bold;
+}

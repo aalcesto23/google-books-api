@@ -1,31 +1,32 @@
 import React, {Component} from 'react'
 
+
 class BookList extends Component {
   render() {
     return (
       <div>
         {this.props.isError && (
-          <div>Error Fetching Results</div>
+          <h5>Error Fetching Results</h5>
         )}
         {this.props.noResults && (
-          <div>No Results</div>
+          <h5>No Results</h5>
         )}
         {!this.props.isError && !this.props.noResults && (
           this.props.results.map(book => {
             return (
-              <div class="col s12 m7">
-                <h5 class="header">{book.title}</h5>
-                <div class="card horizontal">
-                  <div class="card-image">
+              <div className="col s12 m7">
+                <h5 className="header">{book.title}</h5>
+                <div className="card horizontal">
+                  <div className="card-image">
                     <img src={book.bookImageURL} alt="book cover"/>
                   </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <p>Author(s): {book.author}</p>
-                      <p>Publisher: {book.publishingCompany}</p>
+                  <div className="card-stacked">
+                    <div className="card-content">
+                      <p className="emphasisText">Author(s): {book.author}</p>
+                      <p className="emphasisText">Publisher: {book.publishingCompany}</p>
                       <p>{book.description}</p>
                     </div>
-                    <div class="card-action">
+                    <div className="card-action">
                       <a href={book.infoLink}>Learn More...</a>
                     </div>
                   </div>
