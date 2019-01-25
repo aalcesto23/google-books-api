@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import '../'
 class BookQueryForm extends Component {
   render() {
     return (
