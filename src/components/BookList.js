@@ -4,14 +4,20 @@ class BookList extends Component {
   render() {
     return (
       <div>
-        {
+        {this.props.isError && (
+          <div>Error Fetching Results</div>
+        )}
+        {this.props.noResults && (
+          <div>No Results</div>
+        )}
+        {!this.props.isError && !this.props.noResults && (
           this.props.results.map(book => {
             return (
               <div class="col s12 m7">
                 <h5 class="header">{book.title}</h5>
                 <div class="card horizontal">
                   <div class="card-image">
-                    <img src={book.bookImageURL} />
+                    <img src={book.bookImageURL} alt="book cover"/>
                   </div>
                   <div class="card-stacked">
                     <div class="card-content">
@@ -27,7 +33,7 @@ class BookList extends Component {
               </div>
             )
           })
-        }
+        )}
       </div>
     )
   }
