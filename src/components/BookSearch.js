@@ -52,14 +52,20 @@ class BookSearch extends Component {
         })
         this.setState({
           results: parsedResults,
+          noResults: false,
+          isError: false
         })
       } else if (data.totalItems === 0) {
         this.setState({
-          noResults: true
+          noResults: true,
+          results: [],
+          isError: false
         })
       } else {
         this.setState({
-          isError: true
+          isError: true,
+          noResults: false,
+          results: []
         })
       }
     })
