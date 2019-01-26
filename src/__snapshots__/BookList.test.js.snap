@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form renders 1`] = `
+<form>
+  <input
+    className="input-field col 12"
+    name="query"
+    placeholder="Search..."
+    type="text"
+  />
+  <button
+    className="waves-effect waves-light btn-large"
+    disabled={false}
+    name="action"
+    type="submit"
+  >
+    <i
+      className="material-icons right"
+    >
+      search
+    </i>
+    SEARCH
+  </button>
+</form>
+`;

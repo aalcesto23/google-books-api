@@ -47,7 +47,8 @@ class BookSearch extends Component {
             publishingCompany: info.publisher || '',
             bookImageURL: this.getImageURL(info),
             description: info.description || '',
-            infoLink: info.infoLink || ''
+            infoLink: info.infoLink || '',
+            id: x.id
           }
         })
         this.setState({

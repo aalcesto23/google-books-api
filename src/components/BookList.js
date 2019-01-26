@@ -4,17 +4,17 @@ import React, {Component} from 'react'
 class BookList extends Component {
   render() {
     return (
-      <div>
+      <div className="book-list-container">
         {this.props.isError && (
-          <h5>Error Fetching Results</h5>
+          <h5 className="error-message">Error Fetching Results</h5>
         )}
         {this.props.noResults && (
-          <h5>No Results</h5>
+          <h5 className="no-results-message">No Results</h5>
         )}
         {!this.props.isError && !this.props.noResults && (
           this.props.results.map(book => {
             return (
-              <div className="col s12 m7">
+              <div className="col s12 m7 result-item" key={book.id}>
                 <h5 className="header">{book.title}</h5>
                 <div className="card horizontal">
                   <div className="card-image">
