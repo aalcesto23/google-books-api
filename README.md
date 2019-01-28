@@ -1,7 +1,6 @@
 # Using Google Books API
 This application uses the Google Books API to search books based on the user's input and provides the user with useful information about the book, along with providing a link to learn more.
-###Tech/framework used
-
+### Tech/framework used
 *Language:*
 - JavaScript ES6
 
