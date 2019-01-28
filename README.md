@@ -1,5 +1,6 @@
 # Using Google Books API
 This application uses the Google Books API to search books based on the user's input and provides the user with useful information about the book, along with providing a link to learn more.
+
 ### Tech/framework used
 *Language:*
 - JavaScript ES6
@@ -20,9 +21,19 @@ If results return from the API, a list of 40 books will appear below the input f
 - an image of the book
 - description of the book
 - a link to learn more about the book
+
+You can run this application locally by following the steps listed below
+- clone the project
+- navigate to the project directory
+- obtain a Google Books API key and create an env.local file within the project to hold the key
+- run ```yarn start``` in your terminal while within the project directory
+
 ### Tests
 This application uses Jest and enzyme for testing. You can run the test suite using the following command in the terminal within the project directory:
 
 ```
 yarn test
 ```
+
+### Heroku Hosting Link
+(https://aalcesto-google-books-api.herokuapp.com/)
