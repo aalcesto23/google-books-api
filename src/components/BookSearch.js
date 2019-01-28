@@ -35,40 +35,44 @@ class BookSearch extends Component {
     return authors ? authors.join(', ') : ''
   }
 
+  parseResponse = (data) => {
+    if (data.totalItems > 0) { 
+      const parsedResults = data.items.map(x => {
+        const info = x.volumeInfo
+        return {
+          author: this.handleMultipleAuthors(info.authors),
+          title: info.title ||  '',
+          publishingCompany: info.publisher || '',
+          bookImageURL: this.getImageURL(info),
+          description: info.description || '',
+          infoLink: info.infoLink || '',
+          id: x.id
+        }
+      })
+      this.setState({
+        results: parsedResults,
+        noResults: false,
+        isError: false
+      })
+    } else if (data.totalItems === 0) {
+      this.setState({
+        results: [],
+        noResults: true,
+        isError: false
+      })
+    } else {
+      this.setState({
+        results: [],
+        noResults: false,
+        isError: true
+      })
+    }
+  }
+
   getBooks = async(e) => {
     e.preventDefault()
     search(this.state.query).then((data) => {
-      if (data.totalItems > 0) { 
-        const parsedResults = data.items.map(x => {
-          const info = x.volumeInfo
-          return {
-            author: this.handleMultipleAuthors(info.authors),
-            title: info.title ||  '',
-            publishingCompany: info.publisher || '',
-            bookImageURL: this.getImageURL(info),
-            description: info.description || '',
-            infoLink: info.infoLink || '',
-            id: x.id
-          }
-        })
-        this.setState({
-          results: parsedResults,
-          noResults: false,
-          isError: false
-        })
-      } else if (data.totalItems === 0) {
-        this.setState({
-          results: [],
-          noResults: true,
-          isError: false
-        })
-      } else {
-        this.setState({
-          results: [],
-          noResults: false,
-          isError: true
-        })
-      }
+      this.parseResponse(data)
     })
   }
   
