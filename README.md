@@ -20,7 +20,7 @@ If results return from the API, a list of 40 books will appear below the input f
 - an image of the book
 - description of the book
 - a link to learn more about the book
-###Tests
+### Tests
 This application uses Jest and enzyme for testing. You can run the test suite using the following command in the terminal within the project directory:
 
 ```
