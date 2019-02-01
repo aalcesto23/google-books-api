@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BookSearch from './components/BookSearch';
+import BookSearch from '../components/BookSearch';
 import renderer from 'react-test-renderer';
 import {shallow, mount} from 'enzyme';
 

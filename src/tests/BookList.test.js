@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BookList from './components/BookList';
+import BookList from '../components/BookList'
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BookQueryForm from './components/BookQueryForm';
+import BookQueryForm from '../components/BookQueryForm';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 
