@@ -15,9 +15,18 @@ class BookSearch extends Component {
     noResults: false
   }
 
+  secureImageURL = (url) => {
+    if (!url) {
+      return
+    }
+    const imageURL = new URL(url)
+    imageURL.protocol = 'https'
+    return imageURL.toString()
+  }
+
   getImageURL = (imageInfo) => {
     if (imageInfo.imageLinks) {
-      return imageInfo.imageLinks.smallThumbnail || NO_IMAGE_DEFAULT
+      return this.secureImageURL(imageInfo.imageLinks.smallThumbnail) || NO_IMAGE_DEFAULT
     } else {
       return NO_IMAGE_DEFAULT
     }
