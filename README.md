@@ -27,6 +27,7 @@ You can run this application locally by following the steps listed below
 - navigate to the project directory
 - obtain a Google Books API key and create an env.local file within the project to hold the key
 - run ```yarn start``` in your terminal while within the project directory
+- if you haven't installed yarn yet, you can do so by following the steps listed [here](https://yarnpkg.com/lang/en/docs/install/#mac-stable)
 
 ### Tests
 This application uses Jest and enzyme for testing. You can run the test suite using the following command in the terminal within the project directory:
