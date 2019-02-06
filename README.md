@@ -23,11 +23,13 @@ If results return from the API, a list of 40 books will appear below the input f
 - a link to learn more about the book
 
 You can run this application locally by following the steps listed below
+*As a note, I use the ```yarn``` for package management, if you are unfamiliar with yarn or need to install you can find out more about it [here](https://yarnpkg.com/lang/en/docs/install/#mac-stable)
+
+Steps:
 - clone the project
 - navigate to the project directory
 - obtain a Google Books API key and create an env.local file within the project to hold the key
 - run ```yarn start``` in your terminal while within the project directory
-- if you haven't installed yarn yet, you can do so by following the steps listed [here](https://yarnpkg.com/lang/en/docs/install/#mac-stable)
 
 ### Tests
 This application uses Jest and enzyme for testing. You can run the test suite using the following command in the terminal within the project directory:
